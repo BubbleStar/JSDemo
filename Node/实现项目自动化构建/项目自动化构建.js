@@ -1,7 +1,7 @@
 var fs = require('fs');
 
 var projectData = {
-  'name' : 'awsomeProject',
+  'name' : 'awesomeProject',
   'fileData' : [
     {
       'name' : 'html',
