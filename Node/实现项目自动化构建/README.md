@@ -1,0 +1,1 @@
+#这个代码实现了简单的项目自动化构建，当执行时，会在当前目录下自动生成文件夹awsomeProject，该文件夹下有4个文件夹html，css，js，images和一个文件index.html.
