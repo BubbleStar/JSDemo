@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="div1">
+
+    </div>
+    <script type="text/javascript">
+      window.onload = function(){
+	  //用apply修正document.getElementById方法内部的this指向
+	  /*不能写成document.getElementById = function(){
+		return document.getElementById.apply(document,arguments)
+	  }
+	  因为这样写其实就是递归，会无限循环，导致内存溢出。*/
+        document.getElementById = function(func){
+          return function(){
+              return func.apply(document,arguments)
+            }
+        }(document.getElementById);
+
+        var getId = document.getElementById;
+        alert(getId('div1'));
+        alert(document.getElementById('div1'));
+      }
+    </script>
+  </body>
+</html>
