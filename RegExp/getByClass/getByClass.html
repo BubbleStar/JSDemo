@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>getByClass</title>
+  </head>
+  <script type="text/javascript">
+    function getByClass(oParent,sClass) {
+      var oChilds = oParent.getElementsByTagName('*');
+      // \b是正则中的单词界定符
+      var re = new RegExp('\\b' + sClass + '\\b');
+      var result = [];
+      for(var i = 0; i < oChilds.length; i++){
+        if(re.test(oChilds[i].className)){
+          result.push(oChilds[i]);
+        }
+      }
+      return result;
+    }
+    window.onload = function () {
+      var ull = document.getElementsByTagName('ul')[0];
+      var eles = getByClass(ull,"box");
+      for(var i = 0; i < eles.length; i++){
+        eles[i].style.background = 'red';
+      }
+    }
+  </script>
+  <body>
+    <ul>
+      <li class="box"></li>
+      <li class="box box2"></li>
+    </ul>
+  </body>
+</html>
